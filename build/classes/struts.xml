@@ -4,23 +4,30 @@
     "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
+	<constant name="struts.enable.DynamicMethodInvocation"
+		value="false" />
 
-    <constant name="struts.devMode" value="true" />
-
-    <package name="default" extends="struts-default">
+    <constant name="struts.devMode" value="false" />
+	<constant name="struts.custom.i18n.resources"
+		value="ApplicationResources" />
+    <package name="default" extends="struts-default" namespace="/">
         <action name="hello" class="br.com.phellipe.action.HelloAction">
             <result name="success">/index.jsp</result>
         </action>
         
-        <action name="cadastro-seguro" class="br.com.phellipe.action.CadastroSeguroAction">
-            <result name="success">/seguros
-            .jsp</result>
-            <result name="error">/CreateSeguroForm.jsp</result> 
+        <action name="logar" class="br.com.phellipe.action.LoginAction">
+            <result name="success">/home.jsp</result>
+            <result name="error">/index.jsp</result> 
         </action>
         
-        <action name="update-seguro" class="br.com.phellipe.action.CadastroSeguroAction">
+        <action name="cadastro-seguro" class="br.com.phellipe.action.seguro.CadastroSeguroAction">
             <result name="success">/seguros.jsp</result>
-            <result name="error">/UpdateSeguroForm.jsp</result> 
+            <result name="error">/cadastraSeguro.jsp</result> 
+        </action>
+        
+        <action name="update-seguro" class="br.com.phellipe.action.seguro.CadastroSeguroAction">
+            <result name="success">/seguros.jsp</result>
+            <result name="error">/updateSeguro.jsp</result> 
         </action>
     </package>
 

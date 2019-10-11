@@ -14,6 +14,11 @@ public class Seguro {
 
 	public Seguro() {
 	}
+	
+	public Seguro(String nome, Double valor) {
+		this.nome = nome;
+		this.valor = valor;
+	}
 
 	public Long getId() {
 		return id;
