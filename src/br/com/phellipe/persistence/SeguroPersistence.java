@@ -11,7 +11,7 @@ public class SeguroPersistence extends Dao implements IPersitence<Seguro> {
 	public void create(Seguro obj) throws Exception {
 		try {
 			open();
-			stmt = con.prepareStatement("insert into segurado values (null, ?, ?)");
+			stmt = con.prepareStatement("insert into seguros values (null, ?, ?)");
 			stmt.setString(1, obj.getNome());
 			stmt.setDouble(2, obj.getValor());
 			stmt.execute();
@@ -26,7 +26,8 @@ public class SeguroPersistence extends Dao implements IPersitence<Seguro> {
 	public Seguro findById(Long id) throws Exception {
 		try {
 			open();
-			stmt = con.prepareStatement("select * from seguro where id = ?");
+			stmt = con.prepareStatement("select * from seguros where id_seguro = ?");
+			stmt.setLong(1, id);
 			rs = stmt.executeQuery();
 			Seguro seg = null;
 			if (rs.next()) {
@@ -49,7 +50,7 @@ public class SeguroPersistence extends Dao implements IPersitence<Seguro> {
 		try {
 			open();
 			List<Seguro> seguros = new ArrayList<Seguro>();
-			stmt = con.prepareStatement("select * from seguro");
+			stmt = con.prepareStatement("select * from seguros");
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				Seguro seg = new Seguro();
@@ -70,7 +71,7 @@ public class SeguroPersistence extends Dao implements IPersitence<Seguro> {
 	public void update(Seguro obj) throws Exception {
 		try {
 			open();
-			stmt = con.prepareStatement("update seguro set nome=?, valor=? where id=?");
+			stmt = con.prepareStatement("update seguros set nomeSeguro=?, valorSeguro=? where id_seguro=?");
 			stmt.setString(1, obj.getNome());
 			stmt.setDouble(2, obj.getValor());
 			stmt.setLong(3, obj.getId());
@@ -86,7 +87,7 @@ public class SeguroPersistence extends Dao implements IPersitence<Seguro> {
 	public void delete(Long id) throws Exception {
 		try {
 			open();
-			stmt = con.prepareStatement("delete from seguro where id=?");
+			stmt = con.prepareStatement("delete from seguros where id_seguro=?");
 			stmt.setLong(1, id);
 			stmt.execute();
 		} catch (Exception e) {

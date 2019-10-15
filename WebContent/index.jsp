@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<s:form action="logar.action" method="post">
-	<s:textfield name="login" key="label.username" size="20"></s:textfield>
-	<s:password name="senha" key="label.password" size="20"></s:password>
+<s:form action="logar.action" method="post" validate="true">
+	<s:textfield name="login" key="login" size="20"></s:textfield>
+	<s:password name="senha" key="senha" size="20"></s:password>
 	<s:submit method="execute" key="label.login" align="center"></s:submit>
 </s:form>
 <s:actionerror/>
