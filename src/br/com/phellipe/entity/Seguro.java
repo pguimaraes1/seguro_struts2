@@ -1,5 +1,6 @@
 package br.com.phellipe.entity;
 
+
 public class Seguro {
 
 	private Long id;
@@ -14,7 +15,7 @@ public class Seguro {
 
 	public Seguro() {
 	}
-	
+
 	public Seguro(String nome, Double valor) {
 		this.nome = nome;
 		this.valor = valor;
@@ -43,6 +44,7 @@ public class Seguro {
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
+
 
 	@Override
 	public String toString() {

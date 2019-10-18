@@ -15,39 +15,40 @@
         <action name="hello" class="br.com.phellipe.action.HelloAction">
             <result name="success">/index.jsp</result>
         </action>
-        
-        <action name="logar" class="br.com.phellipe.action.login.LoginAction">
+		<!-- login actions -->
+        <action name="logar" class="br.com.phellipe.action.LoginAction">
             <result name="success">/home.jsp</result>
             <result name="error">/index.jsp</result> 
         </action>
-        
-        <action name="cadastroseguro" class="br.com.phellipe.action.seguro.SeguroAction">
-            <result name="success" type="chain">listaseguros</result>
+        <!-- seguro actions -->
+        <action name="cadastroseguro" class="br.com.phellipe.action.SeguroAction">
+            <result name="success" type="redirectAction">listaseguros</result>
             <result name="error">/cadastraSeguro.jsp</result> 
         </action>
         
-         <action name="loadseguro" class="br.com.phellipe.action.seguro.SeguroAction" method="find">
+         <action name="loadseguro" class="br.com.phellipe.action.SeguroAction" method="find">
             <result name="success">update-seguro.jsp</result>
             <result name="error" type="redirectAction">listaseguros</result>
         </action>
         
-        <action name="alteraseguro" class="br.com.phellipe.action.seguro.SeguroAction" method="update">
-            <result name="success" type="chain">listaseguros</result>
+        <action name="alteraseguro" class="br.com.phellipe.action.SeguroAction" method="update">
+            <result name="success" type="redirectAction">listaseguros</result>
             <result name="input">update-seguro.jsp</result>
         </action>
         
-        <action name="excluirseguro" method="delete" class="br.com.phellipe.action.seguro.SeguroAction">
-            <result name="success" type="chain">listaseguros</result>
+        <action name="excluirseguro" method="delete" class="br.com.phellipe.action.SeguroAction">
+            <result name="success" type="redirectAction">listaseguros</result>
             <result name="error" type="chain">listaseguros</result>
         </action>
        
-        <action name="listaseguros" method="list" class="br.com.phellipe.action.seguro.SeguroAction">
+        <action name="listaseguros" method="list" class="br.com.phellipe.action.SeguroAction">
             <result name="success">/seguros.jsp</result>
         </action>
                 
-        <action name="update-seguro" class="br.com.phellipe.action.seguro.SeguroAction">
+        <action name="update-seguro" class="br.com.phellipe.action.SeguroAction">
             <result>/seguros.jsp</result>
         </action>
+        <!-- segurado actions -->
         
     </package>
 

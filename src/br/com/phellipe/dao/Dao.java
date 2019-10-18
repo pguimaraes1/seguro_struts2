@@ -1,4 +1,4 @@
-package br.com.phellipe.persistence;
+package br.com.phellipe.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,10 +1,10 @@
-package br.com.phellipe.persistence;
+package br.com.phellipe.dao;
 
 import java.sql.SQLException;
 
 import br.com.phellipe.entity.SystemUser;
 
-public class SystemUserPersistence extends Dao {
+public class SystemUserDao extends Dao {
 
 	public SystemUser loginVerify(SystemUser user) throws SQLException {
 		try {

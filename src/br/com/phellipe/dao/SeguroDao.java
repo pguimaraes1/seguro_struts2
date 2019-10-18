@@ -1,11 +1,12 @@
-package br.com.phellipe.persistence;
+package br.com.phellipe.dao;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.phellipe.entity.Seguro;
 
-public class SeguroPersistence extends Dao implements IPersitence<Seguro> {
+public class SeguroDao extends Dao implements IDao<Seguro> {
 
 	@Override
 	public void create(Seguro obj) throws Exception {
@@ -46,7 +47,7 @@ public class SeguroPersistence extends Dao implements IPersitence<Seguro> {
 	}
 
 	@Override
-	public List<Seguro> findAll() throws Exception {
+	public List<Seguro> findAll()  {
 		try {
 			open();
 			List<Seguro> seguros = new ArrayList<Seguro>();
@@ -63,7 +64,11 @@ public class SeguroPersistence extends Dao implements IPersitence<Seguro> {
 		} catch (Exception e) {
 			return null;
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

@@ -1,8 +1,8 @@
-package br.com.phellipe.persistence;
+package br.com.phellipe.dao;
 
 import java.util.List;
 
-public interface IPersitence<T> {
+public interface IDao<T> {
 	
 	public void create(T obj) throws Exception;
 	

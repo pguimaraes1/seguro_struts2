@@ -1,4 +1,4 @@
-package br.com.phellipe.action.login;
+package br.com.phellipe.action;
 
 import com.opensymphony.xwork2.Action;
 

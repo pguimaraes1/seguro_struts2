@@ -1,10 +1,10 @@
-package br.com.phellipe.action.login;
+package br.com.phellipe.action;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
+import br.com.phellipe.dao.SystemUserDao;
 import br.com.phellipe.entity.SystemUser;
-import br.com.phellipe.persistence.SystemUserPersistence;
 
 public class LoginAction extends ActionSupport implements Action {
 	private static final long serialVersionUID = 1L;
@@ -15,7 +15,7 @@ public class LoginAction extends ActionSupport implements Action {
 	@Override
 	public String execute() throws Exception {
 		SystemUser user = new SystemUser(login, senha);
-		SystemUserPersistence rs = new SystemUserPersistence();
+		SystemUserDao rs = new SystemUserDao();
 		user = rs.loginVerify(user);
 		if (user != null) {
 			System.out.println("logou!");

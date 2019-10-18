@@ -9,11 +9,11 @@
 </head>
 <body>
 <s:form action="alteraseguro" method="post" validate="true">
-	<s:textfield name="nomeSeguro" key="nomeSeguro" value="%{nomeSeguro}" size="20"></s:textfield>
-	<s:textfield name="valorSeguro" key="valorSeguro" value="%{valorSeguro}" size="20"></s:textfield>
-	<s:hidden name="id" value="%{id}"/>
-	<s:submit method="update" key="label.cadastro" align="center"></s:submit>
-	<s:submit method="#" key="label.cancelar" align="center"></s:submit>
+	<s:textfield name="nomeSeguro" key="nomeSeguro" value="%{seguro.nome}" size="20"></s:textfield>
+	<s:textfield name="valorSeguro" key="valorSeguro" value="%{seguro.valor}" size="20"></s:textfield>
+	<s:hidden name="id" value="%{seguro.id}"/>
+	<s:submit method="update" key="label.altualizar" align="center"></s:submit>
+	<s:submit method="listaseguros" key="label.cancelar" align="center"></s:submit>
 </s:form>
 </body>
 </html>
