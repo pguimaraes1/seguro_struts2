@@ -101,5 +101,11 @@ public class SeguroDao extends Dao implements IDao<Seguro> {
 			con.close();
 		}
 	}
+	
+	
+	public static void main(String[] args) {
+		SeguroDao dao = new SeguroDao();
+		System.out.println(dao.findAll());
+	}
 
 }

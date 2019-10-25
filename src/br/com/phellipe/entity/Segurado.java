@@ -18,6 +18,7 @@ public class Segurado implements Serializable {
 	private Date dataCadastro;
 	private Date dataAlteracao;
 	private Date dataNascimento;
+	
 
 	public Segurado(Long id, String nome, String cpf, String rg, TipoSegurado tipo, TipoGenero genero,
 			Date dataCadastro, Date dataAlteracao, Date dataNascimento) {
@@ -31,17 +32,17 @@ public class Segurado implements Serializable {
 		this.dataAlteracao = dataAlteracao;
 		this.dataNascimento = dataNascimento;
 	}
-
 	
-
-	public Segurado(String nome, String cpf, String rg, Integer tipo, Integer genero) {
-		super();
+	public Segurado(Long id, String nome, String cpf, String rg, Integer tipo, Integer genero, Date dataNascimento) {
+		this.id = (id == null) ? null : id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.rg = rg;
 		this.tipo = tipo;
 		this.genero = genero;
+		this.dataNascimento = dataNascimento;
 	}
+
 
 	public Segurado() {
 		// TODO Auto-generated constructor stub
@@ -174,7 +175,4 @@ public class Segurado implements Serializable {
 		builder.append("\n");
 		return builder.toString();
 	}
-	
-	
-
 }

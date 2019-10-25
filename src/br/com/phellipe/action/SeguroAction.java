@@ -21,7 +21,7 @@ public class SeguroAction extends ActionSupport {
 
 	SeguroService service = new SeguroService();
 
-	@Override
+	
 	public String execute() throws Exception {
 		System.out.println("execute 1");
 		try {

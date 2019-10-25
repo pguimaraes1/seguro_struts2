@@ -45,10 +45,19 @@ public class Seguro {
 		this.valor = valor;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Seguro [id=" + id + ", nome=" + nome + ", valor=" + valor + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Seguro [id=");
+		builder.append(id);
+		builder.append(", nome=");
+		builder.append(nome);
+		builder.append(", valor=");
+		builder.append(valor);
+		builder.append("]");
+		return builder.toString();
 	}
 
+
+	
 }

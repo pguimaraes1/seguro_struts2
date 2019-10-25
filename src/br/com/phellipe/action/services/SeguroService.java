@@ -22,6 +22,7 @@ public class SeguroService {
 	
 	public List<Seguro> findAll() {
 		List<Seguro> seguros = dao.findAll();
+		System.out.println("findall service: " + seguros);
 		return seguros;
 	}
 	
@@ -54,6 +55,11 @@ public class SeguroService {
 		} catch (Exception e) {
 			throw new IllegalArgumentException("erro ao excluir o id " + id );
 		}
+	}
+	
+	public static void main(String[] args) {
+		SeguroService serv = new SeguroService();
+		System.out.println(serv.findAll());
 	}
 	
 }

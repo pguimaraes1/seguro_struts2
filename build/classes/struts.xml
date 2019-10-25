@@ -23,7 +23,7 @@
         <!-- seguro actions -->
         <action name="cadastroseguro" class="br.com.phellipe.action.SeguroAction">
             <result name="success" type="redirectAction">listaseguros</result>
-            <result name="error">/cadastraSeguro.jsp</result> 
+            <result name="error">/cadastra-seguro.jsp</result> 
         </action>
         
          <action name="loadseguro" class="br.com.phellipe.action.SeguroAction" method="find">
@@ -49,7 +49,19 @@
             <result>/seguros.jsp</result>
         </action>
         <!-- segurado actions -->
+        <action name="cadastra-segurado">
+			<result type="chain">load-segurado-form</result>
+		</action>
+		
+        <action name="load-segurado-form" class="br.com.phellipe.action.SeguradoAction" method="LoadSeguradoForm">
+            <result>/cadastra-segurado.jsp</result>
+        </action>
         
+        <action name="cadastra" class="br.com.phellipe.action.SeguradoAction" method="salvarSegurado">
+           <result name="success" type="redirectAction">listaseguros</result>
+            <result name="error" type="chain">load-segurado-form</result> 
+        </action>
+		
     </package>
 
 </struts>

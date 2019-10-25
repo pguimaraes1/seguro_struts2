@@ -2,7 +2,7 @@ package br.com.phellipe.entity.enums;
 
 public enum TipoSegurado {
 
-	CORRENTISTA(1, "Correntista"), NAOCORRENTISTA(2, "Não Correntista");
+	CORRENTISTA(1, "Sim"), NAOCORRENTISTA(2, "Não");
 
 	private int cod;
 	private String descricao;

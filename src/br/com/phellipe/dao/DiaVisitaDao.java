@@ -24,7 +24,7 @@ public class DiaVisitaDao extends Dao implements IDao<DiaVisita>{
 		try {
 			open();
 			List<DiaVisita> dias = new ArrayList<DiaVisita>();
-			stmt = con.prepareStatement("select * from dias");
+			stmt = con.prepareStatement("select * from diasvisita");
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				DiaVisita dia = new DiaVisita();

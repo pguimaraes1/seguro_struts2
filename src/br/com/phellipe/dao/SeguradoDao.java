@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ public class SeguradoDao extends Dao implements IDao<Segurado> {
 	@SuppressWarnings("static-access")
 	@Override
 	public void create(Segurado obj) throws Exception {
+		DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		try {
 			open();
 			System.out.println("abrindo conexao");
@@ -27,8 +29,8 @@ public class SeguradoDao extends Dao implements IDao<Segurado> {
 			stmt.setInt(4, obj.getGenero().getCod());
 			stmt.setInt(5, obj.getTipo().getCod());
 			stmt.setDate(6, new Date(obj.getDataNascimento().getTime()));
-			stmt.setTimestamp(7, new Timestamp(new java.util.Date().getTime()));
-			stmt.setTimestamp(8, new Timestamp(new java.util.Date().getTime()));
+			stmt.setString(7, fmt.format(new Timestamp(new java.util.Date().getTime())));
+			stmt.setString(8, fmt.format(new Timestamp(new java.util.Date().getTime())));
 			stmt.execute();
 			ResultSet generatedKeys = stmt.getGeneratedKeys();
 			if(generatedKeys.next()) {
@@ -140,11 +142,11 @@ public class SeguradoDao extends Dao implements IDao<Segurado> {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		SeguradoDao dao = new SeguradoDao();
-		Segurado s = new Segurado("phellipe", "15313", "1111111", 1, 2);
-		s.setDataNascimento(sdf.parse("25/04/1998"));
-		dao.create(s);
+//		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//		SeguradoDao dao = new SeguradoDao();
+//		Segurado s = new Segurado("phellipe", "15313", "1111111", 1, 2);
+//		s.setDataNascimento(sdf.parse("25/04/1998"));
+//		dao.create(s);
 //		
 //		
 //		Segurado seg = dao.findById(1l);
